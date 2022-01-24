@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_todo_bloc_8/screens/home/bloc/home_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
   final String title;
@@ -13,32 +11,29 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: BlocProvider(
-        create: (context) => HomeBloc(),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Username',
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Username',
                 ),
-                TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
-                  ),
+              ),
+              TextFormField(
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
                 ),
-                const SizedBox(height: 15),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Login'),
-                )
-              ],
-            ),
+              ),
+              const SizedBox(height: 15),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Login'),
+              )
+            ],
           ),
         ),
       ),

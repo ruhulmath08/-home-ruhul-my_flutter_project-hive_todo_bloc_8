@@ -1,12 +1,17 @@
 import 'package:hive/hive.dart';
 import 'package:hive_todo_bloc_8/model/task.dart';
 
-class ToDoService {
+class TodoService {
   late Box<Task> _tasks;
 
   Future<void> init() async {
     Hive.registerAdapter(TaskAdapter());
     _tasks = await Hive.openBox<Task>('tasks');
+
+    await _tasks.clear();
+
+    await _tasks.add(Task('ruhul', 'Subscribe our channel', false));
+    await _tasks.add(Task('zakaria', 'Complete the API task', false));
   }
 
   List<Task> getTasks(final String username) {
